@@ -4,41 +4,40 @@
         v-model="drawer" 
         app
       >
-      <v-list-item>
-        <v-list-item-avatar>
-            <v-img
-              alt="Vuetify Logo"
-              class="shrink mr-2"
-              contain
-              src="https://dududu.top/upload/2020/10/strawberry_2-39b557c19563434fb694263824bd51aa.png"
-              transition="scale-transition"
-              width="40"
-            />
-          </v-list-item-avatar>
+      <v-list>
+        <v-list-item>
+          <v-img
+            alt="Strawberry"
+            class="shrink mr-2"
+            contain
+            src="https://dududu.top/upload/2020/10/strawberry_2-39b557c19563434fb694263824bd51aa.png"
+            transition="scale-transition"
+            width="40"
+          />
           <v-list-item-title class="title">
             Application
           </v-list-item-title>
-      </v-list-item>
+        </v-list-item>
+      </v-list>
 
-      <v-divider></v-divider>
+      <v-divider/>
 
       <v-list dense nav>
-
-          <v-list-item 
-            v-for="(item, index) in sideLists" 
-            :key="index" 
-            link
-          >
-            <v-list-item-icon>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          
-        </v-list>
+        <v-list-item 
+          v-for="(item, index) in sideLists" 
+          :key="index" 
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
     </v-navigation-drawer>
+    <!-- main body top bar -->
     <v-app-bar
       app
       color="primary"
@@ -46,9 +45,8 @@
     >
       <div class="d-flex align-center">
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>Fast Connect DB</v-toolbar-title>
+        <v-toolbar-title>{{ barTitle }}</v-toolbar-title>
       </div>
-
     </v-app-bar>
 
     <v-main>
@@ -72,7 +70,8 @@ export default {
   },
 
   data: () => ({
-    drawer: null,
+    drawer: true,
+    barTitle: 'Fast Connect DB',
     sideLists: [
       {
         icon: 'mdi-home',
