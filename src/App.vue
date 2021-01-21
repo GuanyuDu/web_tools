@@ -1,9 +1,13 @@
 <template>
   <v-app>
-    <v-navigation-drawer
-        v-model="drawer" 
-        app
-      >
+    <!-- side bar -->
+    <v-navigation-drawer 
+      app 
+      dark 
+      bottom 
+      color="blue darken-3" 
+      v-model="drawer"
+    >
       <v-list>
         <v-list-item>
           <v-img
@@ -26,6 +30,7 @@
         <v-list-item 
           v-for="(item, index) in sideLists" 
           :key="index" 
+          @click="goPage(item)" 
           link
         >
           <v-list-item-icon>
@@ -36,57 +41,55 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+
     </v-navigation-drawer>
-    <!-- main body top bar -->
-    <v-app-bar
-      app
-      color="primary"
-      dark
+    <!-- top bar -->
+    <v-app-bar app 
+      color="#f0f0f0" 
     >
       <div class="d-flex align-center">
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title>{{ barTitle }}</v-toolbar-title>
       </div>
     </v-app-bar>
-
+    <!-- main body -->
     <v-main>
-      <v-container
-          class="fill-height"
-          fluid
-        >
-          <home-page />
-      </v-container>
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HomePage from './components/home/home';
 
 export default {
   name: 'App',
-  components: {
-    HomePage
-  },
-
   data: () => ({
     drawer: true,
-    barTitle: 'Fast Connect DB',
+    barTitle: 'Home',
     sideLists: [
       {
         icon: 'mdi-home',
-        title: 'Home'
+        title: 'Home',
+        name: 'home'
       },
       {
         icon: 'mdi-widgets',
-        title: 'Functions'
+        title: 'Fast Connect',
+        name: 'fast-connect'
       },
       {
         icon: 'mdi-account',
-        title: 'About'
+        title: 'About',
+        name: 'about'
       }
     ]
   }),
+  methods: {
+    goPage(page) {
+      this.barTitle = page.title
+      this.$router.push(page.name)
+    }
+  }
 };
 </script>
 
