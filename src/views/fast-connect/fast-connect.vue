@@ -1,9 +1,17 @@
 <template>
-  <v-container
+  <v-col
     class="fill-height"
     fluid
   >
-    <v-row align="start" justify="center">
+    <v-row class="mt-2" align="start" justify="center">
+      <v-col class="d-flex" cols="12" sm="8">
+        <div class="default-banner">
+          <span>暂时只支持数据库实例的查询，后期会添加 docker 容器的查询……</span>
+        </div>
+      </v-col>
+    </v-row>
+
+    <v-row class="mt-5" align="start" justify="center">
       <v-col class="d-flex" cols="12" sm="2">
         <v-select
           :items="types"
@@ -60,7 +68,7 @@
       </v-card>
     </v-dialog>
     
-  </v-container>
+  </v-col>
 </template>
 
 <script>
@@ -99,5 +107,12 @@ export default {
 </script>
 
 <style scoped>
-  
+  .default-banner {
+    width: 100%;
+    color: rgba(0, 0, 0, .8);
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ffecb5;
+    background-color: #fff3cd;
+  }
 </style>

@@ -2,7 +2,7 @@
   <v-container 
     class="fill-height">
     <v-row justify="center">
-      <v-col cols="12" sm="4">
+      <v-col cols="12" sm="3">
         <h2>Web Tool Box V1.0</h2>
         <h3>🙃: Guanyu Sama</h3>
         <h3>📨: im.dugy@foxmail.com</h3>

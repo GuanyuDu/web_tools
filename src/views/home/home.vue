@@ -3,7 +3,13 @@
     class="fill-height">
     <v-row justify="center">
       <v-col cols="12" sm="4">
-        <h2>Welcome to WebTools</h2>
+        <h1>Welcome</h1>
+        <h2>Do you want go to 
+          <a 
+            class="fc-go" 
+            @click="goFC">
+            Fast Connect
+          </a> ?</h2>
       </v-col>
     </v-row>
   </v-container>
@@ -14,10 +20,27 @@ export default {
     name: 'home',
     props: {
 
+    },
+    methods: {
+      goFC: function() {
+        this.$router.push('fast-connect')
+      }
     }
 }
 </script>
 
 <style scoped>
+  .fc-go {
+    color: #292929;
+    border-radius: 5px;
+    display: inline-block;
+    background-color: #ffe07a;
+    transition: all ease .2s;
+  }
+
+  .fc-go:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    transform: scale(1.5);
+  }
 
 </style>
