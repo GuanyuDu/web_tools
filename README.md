@@ -1,7 +1,11 @@
 # web_tools
 自己写着玩的 Web 小工具
 
-![web-tools](https://dududu.top/upload/2021/01/web-tools-bb6c66636504449d8f771a763722f672.png)
+## Home
+
+![web-tools](https://dududu.top/upload/2021/01/web-tools-fbeeb3a3a0a3476f86a4150a892af9e2.png)
+
+## Fast Connect
 
 ![web-tools2](https://dududu.top/upload/2021/01/web-tools2-2e9a9403d3354ac58bae377a20968412.png)
 
