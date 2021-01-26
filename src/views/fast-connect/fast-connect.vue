@@ -93,8 +93,38 @@ export default {
         }],
         showResult: false,
         showFeedback: true,
-        dialog: false
+        dialog: false,
+        key: 'f1c701be77264f3f8f151c8de0aa4c8f'
     }),
+    created: function() {
+      let cityInfo = {}
+      // get city info
+      this.$axios({
+        methods: 'GET',
+        url: 'https://geoapi.qweather.com/v2/city/lookup',
+        params: {
+          key: this.key,
+          location: 'shanghai'
+        }
+      }).then((res) => {
+        cityInfo = res.location[0]
+      }).catch((e) => {
+        console.log(e)
+      })
+      // get weather info
+      this.$axios({
+        methods: 'GET',
+        url: 'https://geoapi.qweather.com/v7/weather/now',
+        params: {
+          key: this.key,
+          location: cityInfo.id
+        }
+      }).then((res) => {
+        alert(res.now)
+      }).catch((e) => {
+        console.log(e)
+      })
+    }, 
     methods: {
       changeResultStatus: function() {
         this.showResult = !this.showResult
