@@ -51,6 +51,17 @@
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title>{{ barTitle }}</v-toolbar-title>
       </div>
+      <span class="weather-info">{{ `${location} ${weather.temp}&#8451;` }}</span>
+      <div class="weather">
+        <v-img
+          alt="weather-icon"
+          class="shrink mr-2"
+          contain
+          :src="iconUrl"
+          transition="scale-transition"
+          width="40"
+        />
+      </div>
     </v-app-bar>
     <!-- main body -->
     <v-main>
@@ -66,6 +77,12 @@ export default {
   data: () => ({
     drawer: true,
     barTitle: 'Home',
+    iconUrl: '',
+    location: 'Shanghai',
+    weather: {
+      temp: 0
+    },
+    key: 'f1c701be77264f3f8f151c8de0aa4c8f',
     sideLists: [
       {
         icon: 'mdi-home',
@@ -84,10 +101,42 @@ export default {
       }
     ]
   }),
+  created: function() {
+    this.getCityInfo()
+  }, 
   methods: {
     goPage(page) {
       this.barTitle = page.title
       this.$router.push(page.name)
+    },
+    getCityInfo: function() {
+      this.$axios({
+        methods: 'GET',
+        url: '/weather/geo/v2/city/lookup',
+        params: {
+          key: this.key,
+          location: 'shanghai'
+        }
+      }).then((res) => {
+        this.getWeatherInfo(res.data.location[0])
+      }).catch((e) => {
+        console.log(e)
+      })
+    },
+    getWeatherInfo: function(cityInfo) {
+      this.$axios({
+        methods: 'GET',
+        url: '/weather/dev/v7/weather/now',
+        params: {
+          key: this.key,
+          location: cityInfo.id
+        }
+      }).then((res) => {
+        this.weather = res.data.now
+        this.iconUrl = require(`./assets/weather/${res.data.now.icon}.png`)
+      }).catch((e) => {
+        console.log(e)
+      })
     }
   }
 };
@@ -96,5 +145,16 @@ export default {
 <style scoped>
   .container {
     background-color: #f5f5f5;
+  }
+  .weather {
+    right: 0;
+    position: absolute;
+  }
+  .weather-info {
+    right: 50px;
+    color: #858585;
+    font-size: 1.2em;
+    font-weight: 500;
+    position: absolute;
   }
 </style>

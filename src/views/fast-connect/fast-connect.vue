@@ -79,7 +79,7 @@ export default {
     },
     data: () => ({
       types: ['Server','Docker'],
-      envs: ['DEV','UAT', 'PRE', 'PRO'],
+      envs: ['UAT', 'PRE', 'PRO'],
       databases: ['yw_cp_opem_baseDB','yw_cp_open_statisticsDB'],
       services: ['QuickcpQidianServer', 'QuickcpQidianServer'],
       results: [
@@ -97,33 +97,7 @@ export default {
         key: 'f1c701be77264f3f8f151c8de0aa4c8f'
     }),
     created: function() {
-      let cityInfo = {}
-      // get city info
-      this.$axios({
-        methods: 'GET',
-        url: 'https://geoapi.qweather.com/v2/city/lookup',
-        params: {
-          key: this.key,
-          location: 'shanghai'
-        }
-      }).then((res) => {
-        cityInfo = res.location[0]
-      }).catch((e) => {
-        console.log(e)
-      })
-      // get weather info
-      this.$axios({
-        methods: 'GET',
-        url: 'https://geoapi.qweather.com/v7/weather/now',
-        params: {
-          key: this.key,
-          location: cityInfo.id
-        }
-      }).then((res) => {
-        alert(res.now)
-      }).catch((e) => {
-        console.log(e)
-      })
+      
     }, 
     methods: {
       changeResultStatus: function() {
@@ -139,10 +113,11 @@ export default {
 <style scoped>
   .default-banner {
     width: 100%;
-    color: rgba(0, 0, 0, .8);
+    color:#858585;
+    font-size: 1.1em;
     padding: 15px;
     border-radius: 5px;
-    border: 1px solid #ffecb5;
+    border: 2px solid #febe7b;
     background-color: #fff3cd;
   }
 </style>

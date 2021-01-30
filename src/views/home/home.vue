@@ -21,6 +21,12 @@ export default {
     props: {
 
     },
+    data: () => ({
+      showInfo: ''
+    }),
+    created: function() {
+      
+    }, 
     methods: {
       goFC: function() {
         this.$router.push('fast-connect')
