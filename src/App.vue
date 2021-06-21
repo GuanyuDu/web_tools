@@ -19,7 +19,7 @@
             width="40"
           />
           <v-list-item-title class="title">
-            Application
+            杂牌工具箱
           </v-list-item-title>
         </v-list-item>
       </v-list>
@@ -76,9 +76,9 @@ export default {
   name: 'App',
   data: () => ({
     drawer: true,
-    barTitle: 'Home',
+    barTitle: '首页',
     iconUrl: '',
-    location: 'Shanghai',
+    location: '上海',
     weather: {
       temp: 0
     },
@@ -86,17 +86,22 @@ export default {
     sideLists: [
       {
         icon: 'mdi-home',
-        title: 'Home',
+        title: '首页',
         name: 'home'
       },
       {
         icon: 'mdi-widgets',
-        title: 'Fast Connect',
+        title: '快速连接',
         name: 'fast-connect'
       },
       {
+        icon: 'mdi-code-braces-box',
+        title: '乱码转换',
+        name: 'encoding-conversion'
+      },
+      {
         icon: 'mdi-account',
-        title: 'About',
+        title: '关于',
         name: 'about'
       }
     ]

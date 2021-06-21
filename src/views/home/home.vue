@@ -3,13 +3,13 @@
     class="fill-height">
     <v-row justify="center">
       <v-col cols="12" sm="4">
-        <h1>Welcome</h1>
-        <h2>Do you want go to 
+        <h1>欢迎</h1>
+        <h2>你想使用 
           <a 
             class="fc-go" 
             @click="goFC">
-            Fast Connect
-          </a> ?</h2>
+            “快速链接”
+          </a> 吗?</h2>
       </v-col>
     </v-row>
   </v-container>

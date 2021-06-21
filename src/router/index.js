@@ -32,6 +32,11 @@ const constantRoutes = [
         path: '/fast-connect',
         name: 'fast-connect',
         component: () => import('../views/fast-connect/fast-connect')
+    },
+    {
+        path: '/conversion',
+        name: 'encoding-conversion',
+        component: () => import('../views/conversion/encoding-conversion')
     }
 ]
 
