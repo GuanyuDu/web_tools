@@ -8,7 +8,7 @@
           <a 
             class="fc-go" 
             @click="goFC">
-            “快速链接”
+            “快速连接”
           </a> 吗?</h2>
       </v-col>
     </v-row>

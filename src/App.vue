@@ -23,9 +23,9 @@
           </v-list-item-title>
         </v-list-item>
       </v-list>
-
+      <!-- side bar divider -->
       <v-divider/>
-
+      <!-- menu list -->
       <v-list dense nav>
         <v-list-item 
           v-for="(item, index) in sideLists" 
@@ -33,16 +33,18 @@
           @click="goPage(item)" 
           link
         >
+          <!-- menu icon -->
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
+          <!-- menu title -->
           <v-list-item-content>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
-
     </v-navigation-drawer>
+    
     <!-- top bar -->
     <v-app-bar app 
       color="#f0f0f0" 
